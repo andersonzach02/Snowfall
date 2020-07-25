@@ -1,4 +1,5 @@
 let segment;
+let segments = [];
 
 function setup() {
     createCanvas(400, 400);
@@ -10,14 +11,23 @@ function setup() {
 
     segment = new Segment(startPoint, endPoint);
     
+    segments = segment.divide();
 
 }
 
 
 function draw() {
-
 }
 
 function mouseClicked() {
-    segment.draw();
+    background(0);
+
+    let newSegments = [];
+
+    segments.forEach(segment => {
+        segment.draw();
+        newSegments = newSegments.concat(segment.divide());
+    });
+
+    segments = newSegments;
 }

@@ -3,7 +3,6 @@ class Segment {
     constructor(startPoint, endPoint) {
         this.start = startPoint;
         this.end = endPoint;
-        this.isDivided = false;
         this.subsegments = []
     }
 
@@ -25,13 +24,12 @@ class Segment {
         this.subsegments.push(new Segment(this.thirdPoint, this.fourthPoint));
         this.subsegments.push(new Segment(this.fourthPoint, this.end))
 
+        return this.subsegments;
     }
 
     draw() {
         stroke(255);
-        this.subsegments.forEach((segment) => {
-            line(segment.start.x, segment.start.y, segment.end.x, segment.end.y);
-        });
+        line(this.start.x, this.start.y, this.end.x, this.end.y);
     }
 
 

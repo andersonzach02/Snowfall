@@ -1,15 +1,21 @@
 let segment;
 let segments = [];
+let triangle;
+
 
 function setup() {
-    createCanvas(400, 400);
+    createCanvas(800, 800);
     background(0);
 
 
-    let startPoint = createVector(0, height/2);
-    let endPoint = createVector(width, height/2);
+    let startPoint = createVector(0, height);
+    let endPoint = createVector(width, height);
 
     segment = new Segment(startPoint, endPoint);
+
+    triangle = new EquilateralTriangle(segment);    
+
+
     
     segments = segment.divide();
 
@@ -17,6 +23,7 @@ function setup() {
 
 
 function draw() {
+    triangle.draw();
 }
 
 function mouseClicked() {

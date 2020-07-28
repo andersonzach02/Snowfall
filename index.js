@@ -1,6 +1,7 @@
 let segment;
 let segments = [];
 let triangle;
+let snowflake;
 
 
 function setup() {
@@ -8,33 +9,20 @@ function setup() {
     background(0);
 
 
-    let startPoint = createVector(0, height);
-    let endPoint = createVector(width, height);
+    let startPoint = createVector(width/2 - 10, height/2 - 10);
+    let endPoint = createVector(width/2 + 10, height/2 - 10);
 
     segment = new Segment(startPoint, endPoint);
 
     triangle = new EquilateralTriangle(segment);    
 
-
+    snowflake = new KochSnowflake(triangle, 3);
     
-    segments = segment.divide();
 
-}
-
-
-function draw() {
-    triangle.draw();
 }
 
 function mouseClicked() {
     background(0);
 
-    let newSegments = [];
-
-    segments.forEach(segment => {
-        segment.draw();
-        newSegments = newSegments.concat(segment.divide());
-    });
-
-    segments = newSegments;
+    snowflake.draw();
 }

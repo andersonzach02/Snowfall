@@ -6,8 +6,7 @@ class Segment {
         this.subsegments = []
     }
 
-    divide() {
-
+    divide(angle) {
         let newVector = p5.Vector.sub(this.end, this.start);
 
         newVector.div(3);
@@ -15,7 +14,7 @@ class Segment {
         this.secondPoint = p5.Vector.add(this.start, newVector);
         this.fourthPoint = p5.Vector.sub(this.end, newVector);
     
-        newVector.rotate(-PI/3);
+        newVector.rotate(angle);
     
         this.thirdPoint = p5.Vector.add(this.secondPoint, newVector);
 

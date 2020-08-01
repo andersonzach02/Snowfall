@@ -1,8 +1,8 @@
 class Segment {
 
     constructor(startPoint, endPoint) {
-        this.start = startPoint;
-        this.end = endPoint;
+        this.start = startPoint.copy();
+        this.end = endPoint.copy();
         this.subsegments = []
     }
 

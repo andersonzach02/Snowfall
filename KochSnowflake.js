@@ -9,11 +9,13 @@ class KochSnowflake {
     }
 
     draw() {
+        for(let i = 0; i < this.numberOfIterations; i++){
+            this.updateNewestSegments();
+        }
+
         this.#newestSegments.forEach(segment => {
             segment.draw();
         });
-
-        this.updateNewestSegments();
     }
 
     updateNewestSegments() {

@@ -4,7 +4,7 @@ This is a project that simulates snowflakes falling from the sky like a beautifu
 
 - [x] Figure out algorithm for creating a snowflake
   - Koch Fractal Algorithm
-- [ ] Create a sample, static snowflake in the browser
+- [x] Create a sample, static snowflake in the browser
 - [ ] Create a snowflake object with variable sizes
 - [ ] Create a simple physics engine for the snowflake to fall
 - [ ] Apply snowflake physics so that it falls like an actual snowflake (more floaty, doesn't fall straight down, etc.)

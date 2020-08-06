@@ -31,4 +31,9 @@ class Segment {
         line(this.start.x, this.start.y, this.end.x, this.end.y);
     }
 
+    update() {
+        this.start.y++;
+        this.end.y++;
+    }
+
 }

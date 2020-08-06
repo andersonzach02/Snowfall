@@ -5,24 +5,34 @@ let snowflake;
 
 
 function setup() {
-    createCanvas(800, 800);
+    createCanvas(innerWidth, innerHeight);
     background(0);
 
-
-    let startPoint = createVector(width/2 - 10, height/2 - 10);
-    let endPoint = createVector(width/2 + 10, height/2 - 10);
-
+    x = random(width);
+    y = random(height);
+    
+    let startPoint = createVector(x, y);
+    let endPoint = createEndpointBasedOnStartpoint(startPoint, 100);
+    
     segment = new Segment(startPoint, endPoint);
 
     triangle = new EquilateralTriangle(segment);    
 
     snowflake = new KochSnowflake(triangle, 3);
-    
-
 }
 
-function mouseClicked() {
+function draw() {
     background(0);
-
     snowflake.draw();
+    snowflake.update();
+}
+
+// function mouseClicked() {
+//     background(0);
+
+//     snowflake.draw();
+// }
+
+function createEndpointBasedOnStartpoint(startPoint, desiredLength) {
+    return createVector(startPoint.x + desiredLength, startPoint.y);
 }

@@ -27,9 +27,9 @@ class KochSnowflake {
         this.#newestSegments = updatedSegments;
     }
 
-    update() {
+    update(speed) {
         this.#newestSegments.forEach(segment => {
-            segment.update();
+            segment.update(speed);
         })
     }
 

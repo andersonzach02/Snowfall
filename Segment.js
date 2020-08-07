@@ -31,9 +31,9 @@ class Segment {
         line(this.start.x, this.start.y, this.end.x, this.end.y);
     }
 
-    update() {
-        this.start.y++;
-        this.end.y++;
+    update(speed) {
+        this.start.y += speed;
+        this.end.y += speed;
     }
 
 }

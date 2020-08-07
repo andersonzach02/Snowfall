@@ -5,7 +5,9 @@ function setup() {
     createCanvas(innerWidth, innerHeight);
     background(0);
 
-    snowfall = new Snowfall(100, 4);
+    let acceleration = createVector(0, 0.25);
+
+    snowfall = new Snowfall(10, acceleration);
 }
 
 function draw() {

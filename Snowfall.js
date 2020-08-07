@@ -1,15 +1,15 @@
 class Snowfall {
 
-    constructor(numberOfSnowflakes, snowflakeSpeed) {
+    constructor(numberOfSnowflakes, snowflakeAcceleration) {
         this.snowflakes = [];
         this.numberOfSnowflakes = numberOfSnowflakes;
-        this.snowflakeSpeed = snowflakeSpeed;
+        this.snowflakeAcceleration = snowflakeAcceleration;
         this.generateSnowfall();
     }
 
     generateSnowfall() {
         for(let i = 0; i < this.numberOfSnowflakes; i++) {
-            let snowflake = this.generateSnowflake(4, 4);
+            let snowflake = this.generateSnowflake(7, 4);
             this.snowflakes.push(snowflake);
         }
     }
@@ -32,7 +32,7 @@ class Snowfall {
     draw() {
         this.snowflakes.forEach(snowflake => {
             snowflake.draw();
-            snowflake.update(this.snowflakeSpeed);
+            snowflake.update(this.snowflakeAcceleration);
         });
     }
 }

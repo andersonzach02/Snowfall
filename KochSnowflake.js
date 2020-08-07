@@ -6,9 +6,9 @@ class KochSnowflake {
         this.base = baseTriangle;
         this.numberOfIterations = iterations;
         this.#newestSegments = this.base.getSegments();
-        for(let i = 0; i < this.numberOfIterations; i++){
-            this.updateNewestSegments();
-        }   
+        this.velocity = createVector(0, random(2, 22));
+        this.updateNewestSegments();
+        
     }
 
     draw() {
@@ -18,19 +18,23 @@ class KochSnowflake {
     }
 
     updateNewestSegments() {
-        let updatedSegments = [];
+        for(let i = 0; i < this.numberOfIterations; i++){
+            let updatedSegments = [];
 
-        this.#newestSegments.forEach(segment => {
-            updatedSegments = updatedSegments.concat(segment.divide(-PI/3));
-        });
+            this.#newestSegments.forEach(segment => {
+                updatedSegments = updatedSegments.concat(segment.divide(-PI/3));
+            });
 
-        this.#newestSegments = updatedSegments;
+            this.#newestSegments = updatedSegments;
+        }   
     }
 
-    update(speed) {
+    update(acceleration) {
         this.#newestSegments.forEach(segment => {
-            segment.update(speed);
-        })
+            segment.update(this.velocity);
+        });
+
+        this.velocity.add(acceleration);
     }
 
 }
